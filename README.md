@@ -2,6 +2,8 @@
 
 > **Wanderly** is a high-end, editorial travel agency web application built with **Next.js 16 (App Router)**, **TypeScript**, and **Tailwind CSS**. Inspired by modern minimalist design language and premier luxury hospitality brands, Wanderly offers a seamless, immersive experience for discerning explorers seeking tailor-made private journeys.
 
+**Live Demo:** [wanderly-travels-website.vercel.app](https://wanderly-travels-website.vercel.app/)
+
 ---
 
 ## Key Highlights & Features
@@ -132,14 +134,12 @@ npm run start
 
 ## Deployment
 
-This application is ready for zero-configuration deployment on [Vercel](https://vercel.com):
+This application is deployed and hosted on [Vercel](https://vercel.com):
 
-1. Push your changes to GitHub:
-   ```bash
-   git add .
-   git commit -m "Update Wanderly travel website"
-   git push origin main
-   ```
+- **Live Production URL:** [https://wanderly-travels-website.vercel.app/](https://wanderly-travels-website.vercel.app/)
+
+To deploy your own copy:
+1. Push your changes to GitHub.
 2. Import the repository into your [Vercel Dashboard](https://vercel.com/new).
 3. Vercel automatically detects Next.js and deploys your site with global edge caching and instant SSL.
 
