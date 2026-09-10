@@ -1,12 +1,12 @@
-# 🏔️ Wanderly — Bespoke Luxury Travel & Curated Expeditions
+# Wanderly — Bespoke Luxury Travel & Curated Expeditions
 
-> **Wanderly** is a high-end, editorial travel agency web application built with **Next.js 16 (App Router)**, **TypeScript**, and **Tailwind CSS**. Inspired by Apple's minimalist design language and premier luxury hospitality brands, Wanderly offers a seamless, immersive experience for discerning explorers seeking tailor-made private journeys.
+> **Wanderly** is a high-end, editorial travel agency web application built with **Next.js 16 (App Router)**, **TypeScript**, and **Tailwind CSS**. Inspired by modern minimalist design language and premier luxury hospitality brands, Wanderly offers a seamless, immersive experience for discerning explorers seeking tailor-made private journeys.
 
 ---
 
-## ✨ Key Highlights & Features
+## Key Highlights & Features
 
-### 🏛️ 1. Complete Multi-Page Architecture
+### 1. Complete Multi-Page Architecture
 - **Home (`/`)**:
   - Full-screen cinematic hero with curated imagery and refined typography.
   - Social proof counter (*12+ Years of Excellence, 48+ Countries, 15,000+ Patrons*).
@@ -28,7 +28,7 @@
   - Interactive flagship atelier selector (**London**, **New York**, **Tokyo**, **Zurich**) with simulated radar coordinates.
   - Expandable FAQ accordion.
 
-### 💎 2. Premium Design System & UI/UX
+### 2. Premium Design System & UI/UX
 - **Custom Mountain Brand Mark & Favicon**: Minimalist continuous line-art mountain silhouette, responsive across dark and light surfaces.
 - **Sticky Glassmorphic Navigation**: Adapts between transparent overlay (hero) and frosted glass (`backdrop-blur-xl`) upon scroll, with mobile drawer menu.
 - **Interactive Reservation Drawer**: Instant party size calculator, departure calendar, investment calculation, and reference number generation.
@@ -37,7 +37,7 @@
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer | Technology |
 |---|---|
@@ -50,7 +50,7 @@
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```bash
 wanderly-travel/
@@ -91,7 +91,7 @@ wanderly-travel/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - **Node.js** 18.18+ or later
@@ -119,7 +119,7 @@ wanderly-travel/
 
 ---
 
-## 🏗️ Production Build
+## Production Build
 
 To test and build the production bundle:
 
@@ -130,7 +130,7 @@ npm run start
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 This application is ready for zero-configuration deployment on [Vercel](https://vercel.com):
 
@@ -145,6 +145,6 @@ This application is ready for zero-configuration deployment on [Vercel](https://
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
