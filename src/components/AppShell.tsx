@@ -69,7 +69,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
   return (
     <ToastProvider>
       <BookingContext.Provider value={{ openBookingModal, closeBookingModal }}>
-        <div className="min-h-screen flex flex-col bg-[#fafaf9] text-stone-900 font-sans selection:bg-stone-900 selection:text-white">
+        <div className="min-h-screen flex flex-col bg-[#fbfbfd] text-slate-900 font-sans selection:bg-slate-900 selection:text-white">
           <Navbar onOpenBooking={() => openBookingModal()} />
           <main className="flex-1 w-full">{children}</main>
           <Footer />

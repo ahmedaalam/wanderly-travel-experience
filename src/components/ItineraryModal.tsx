@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { X, Clock, Calendar, Users, Check, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { X, Clock, Users, Check, ArrowUpRight } from 'lucide-react';
 import { Package } from '@/types';
 
 interface ItineraryModalProps {
@@ -18,14 +18,14 @@ export default function ItineraryModal({ pkg, isOpen, onClose, onBookNow }: Itin
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-stone-950/70 backdrop-blur-md transition-opacity"
+        className="fixed inset-0 bg-slate-950/70 backdrop-blur-md transition-opacity"
         onClick={onClose}
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-3xl bg-white dark:bg-stone-900 rounded-3xl shadow-2xl border border-stone-200 dark:border-stone-800 overflow-hidden z-10 my-8 flex flex-col max-h-[90vh]">
-        {/* Header */}
-        <div className="relative h-64 w-full bg-stone-950 shrink-0">
+      <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-slate-200/70 overflow-hidden z-10 my-8 flex flex-col max-h-[90vh]">
+        {/* Header Image */}
+        <div className="relative h-64 w-full bg-slate-950 shrink-0">
           <div
             className="w-full h-full bg-cover bg-center"
             style={{ backgroundImage: `url(${pkg.image})` }}
@@ -40,19 +40,19 @@ export default function ItineraryModal({ pkg, isOpen, onClose, onBookNow }: Itin
           </button>
 
           <div className="absolute bottom-6 left-6 right-6 text-white">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/90 text-stone-950 uppercase tracking-wider">
+            <span className="px-3 py-1 rounded-full text-xs font-medium bg-indigo-600/90 text-white uppercase tracking-widest">
               {pkg.badge || pkg.region}
             </span>
-            <h2 className="text-xl sm:text-2xl font-serif font-bold tracking-tight mt-2">
+            <h2 className="text-xl sm:text-2xl font-light tracking-tight mt-2">
               {pkg.title}
             </h2>
-            <div className="flex flex-wrap items-center gap-4 text-xs text-stone-200 mt-2">
+            <div className="flex flex-wrap items-center gap-4 text-xs text-slate-300 mt-2 font-light">
               <span className="flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5 text-amber-400" />
+                <Clock className="w-3.5 h-3.5 text-indigo-400" />
                 {pkg.duration}
               </span>
               <span className="flex items-center gap-1">
-                <Users className="w-3.5 h-3.5 text-amber-400" />
+                <Users className="w-3.5 h-3.5 text-indigo-400" />
                 {pkg.groupSize}
               </span>
               <span>${pkg.price.toLocaleString()} / guest</span>
@@ -63,29 +63,27 @@ export default function ItineraryModal({ pkg, isOpen, onClose, onBookNow }: Itin
         {/* Itinerary Timeline */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
           <div className="space-y-2">
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-stone-900 dark:text-white">
+            <h4 className="text-xs uppercase tracking-widest font-semibold text-slate-900">
               Expedition Overview
             </h4>
-            <p className="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+            <p className="text-sm text-slate-600 font-light leading-relaxed">
               {pkg.overview}
             </p>
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-stone-900 dark:text-white mb-4">
+            <h4 className="text-xs uppercase tracking-widest font-semibold text-slate-900 mb-4">
               Day-by-Day Private Itinerary
             </h4>
-            <div className="space-y-4 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-stone-200 dark:before:bg-stone-800">
+            <div className="space-y-4 relative before:absolute before:inset-0 before:left-3.5 before:w-0.5 before:bg-slate-200">
               {pkg.itinerary.map((day) => (
                 <div key={day.day} className="relative flex items-start gap-4 pl-1">
-                  <div className="w-6 h-6 rounded-full bg-stone-900 dark:bg-white text-white dark:text-stone-950 flex items-center justify-center text-xs font-bold shrink-0 z-10 shadow">
+                  <div className="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs font-medium shrink-0 z-10 shadow">
                     {day.day}
                   </div>
-                  <div className="flex-1 bg-stone-50 dark:bg-stone-800/60 p-4 rounded-2xl border border-stone-200/60 dark:border-stone-700/60">
-                    <h5 className="text-sm font-semibold text-stone-900 dark:text-white">
-                      {day.title}
-                    </h5>
-                    <p className="text-xs text-stone-600 dark:text-stone-300 mt-1.5 leading-relaxed">
+                  <div className="flex-1 bg-slate-50 p-4 rounded-2xl border border-slate-200/70">
+                    <h5 className="text-sm font-medium text-slate-900">{day.title}</h5>
+                    <p className="text-xs text-slate-500 font-light mt-1.5 leading-relaxed">
                       {day.description}
                     </p>
                   </div>
@@ -95,10 +93,10 @@ export default function ItineraryModal({ pkg, isOpen, onClose, onBookNow }: Itin
           </div>
 
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-stone-900 dark:text-white mb-3">
+            <h4 className="text-xs uppercase tracking-widest font-semibold text-slate-900 mb-3">
               Included In This Expedition
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-600 dark:text-stone-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 font-light">
               {pkg.inclusions.map((inc, idx) => (
                 <div key={idx} className="flex items-start gap-2">
                   <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
@@ -110,17 +108,17 @@ export default function ItineraryModal({ pkg, isOpen, onClose, onBookNow }: Itin
         </div>
 
         {/* Footer actions */}
-        <div className="p-6 border-t border-stone-200 dark:border-stone-800 bg-stone-50/80 dark:bg-stone-900/90 flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
+        <div className="p-6 border-t border-slate-200/70 bg-slate-50/80 flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
           <div>
-            <span className="text-xs text-stone-500">Total Investment per traveler</span>
-            <div className="text-xl font-serif font-bold text-stone-900 dark:text-white">
+            <span className="text-xs text-slate-400 font-light">Total Investment per traveler</span>
+            <div className="text-xl font-light text-slate-900 tracking-tight">
               ${pkg.price.toLocaleString()} USD
             </div>
           </div>
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <button
               onClick={onClose}
-              className="flex-1 sm:flex-none px-5 py-3 rounded-full border border-stone-300 dark:border-stone-700 text-xs font-semibold text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+              className="flex-1 sm:flex-none px-5 py-3 rounded-full border border-slate-200 text-xs font-medium text-slate-700 hover:bg-slate-100 transition-colors"
             >
               Close
             </button>
@@ -129,7 +127,7 @@ export default function ItineraryModal({ pkg, isOpen, onClose, onBookNow }: Itin
                 onClose();
                 onBookNow(pkg);
               }}
-              className="flex-1 sm:flex-none px-7 py-3 rounded-full bg-stone-900 hover:bg-stone-800 dark:bg-white dark:text-stone-950 dark:hover:bg-stone-200 text-white text-xs uppercase tracking-wider font-semibold shadow-lg transition-all flex items-center justify-center gap-2 active:scale-95"
+              className="flex-1 sm:flex-none px-7 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs uppercase tracking-widest font-medium shadow-sm transition-all flex items-center justify-center gap-2 active:scale-95"
             >
               <span>Book This Package</span>
               <ArrowUpRight className="w-4 h-4" />

@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowUpRight, PhoneCall } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import WanderlyLogoMark from './WanderlyLogoMark';
 
 interface NavbarProps {
@@ -14,19 +14,15 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 24);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -36,12 +32,21 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     { name: 'Contact', href: '/contact' },
   ];
 
+  const handlePlanTrip = () => {
+    setMobileMenuOpen(false);
+    if (onOpenBooking) {
+      onOpenBooking();
+    } else {
+      router.push('/packages');
+    }
+  };
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/85 backdrop-blur-xl border-b border-stone-200/60 shadow-sm py-3'
-          : 'bg-gradient-to-b from-black/40 via-black/15 to-transparent backdrop-blur-xs py-5'
+          ? 'py-3 bg-white/80 backdrop-blur-xl border-b border-slate-200/70 shadow-xs'
+          : 'py-5 bg-gradient-to-b from-black/50 via-black/20 to-transparent backdrop-blur-[2px]'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,149 +54,123 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           {/* Brand Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group transition-transform duration-200 hover:scale-[1.01]"
+            className="flex items-center gap-2.5 group transition-transform duration-300 hover:opacity-90"
           >
             <WanderlyLogoMark
-              size={36}
+              size={32}
               variant={isScrolled ? 'dark' : 'light'}
-              className="shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 drop-shadow-sm"
+              className="shrink-0 transition-transform duration-300 group-hover:scale-105"
             />
             <div className="flex flex-col">
               <span
-                className={`text-xl font-semibold tracking-tight font-serif transition-colors ${
-                  isScrolled ? 'text-stone-900' : 'text-white drop-shadow-sm'
+                className={`text-base font-semibold tracking-tight transition-colors duration-300 ${
+                  isScrolled ? 'text-slate-900' : 'text-white'
                 }`}
               >
                 WANDERLY
               </span>
               <span
-                className={`text-[9px] uppercase tracking-widest font-medium transition-colors ${
-                  isScrolled ? 'text-stone-500' : 'text-white/80'
+                className={`text-[9px] uppercase tracking-widest font-medium transition-colors duration-300 ${
+                  isScrolled ? 'text-slate-400' : 'text-white/70'
                 }`}
               >
-                Private Journeys
+                Travel Experience
               </span>
             </div>
           </Link>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-stone-900/5 dark:bg-white/5 backdrop-blur-md px-3 py-1.5 rounded-full border border-black/5 dark:border-white/10">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                    isActive
-                      ? isScrolled
-                        ? 'bg-stone-900 text-white shadow-sm'
-                        : 'bg-white text-stone-950 shadow-md font-semibold'
-                      : isScrolled
-                      ? 'text-stone-600 hover:text-stone-950 hover:bg-stone-200/50'
-                      : 'text-white/90 hover:text-white hover:bg-white/15'
-                  }`}
-                >
-                  {link.name}
-                  {isActive && (
-                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-amber-500 rounded-full" />
-                  )}
-                </Link>
-              );
-            })}
+          {/* Center Apple-style Nav Pill */}
+          <nav className="hidden md:flex items-center gap-1">
+            <div
+              className={`flex items-center gap-1 px-3 py-1.5 rounded-full transition-all duration-300 ${
+                isScrolled
+                  ? 'bg-slate-100/80 border border-slate-200/60'
+                  : 'bg-white/10 backdrop-blur-md border border-white/15'
+              }`}
+            >
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`px-3.5 py-1 text-xs font-medium rounded-full transition-all duration-200 ${
+                      isActive
+                        ? isScrolled
+                          ? 'bg-white text-slate-950 shadow-xs'
+                          : 'bg-white text-slate-950 shadow-xs font-semibold'
+                        : isScrolled
+                        ? 'text-slate-600 hover:text-slate-950 hover:bg-white/60'
+                        : 'text-white/80 hover:text-white hover:bg-white/15'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </div>
           </nav>
 
-          {/* Right Action Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/contact"
-              className={`flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full transition-colors ${
-                isScrolled
-                  ? 'text-stone-600 hover:text-stone-900'
-                  : 'text-white/90 hover:text-white'
-              }`}
-            >
-              <PhoneCall className="w-3.5 h-3.5" />
-              <span>VIP Concierge</span>
-            </Link>
-
+          {/* Right Action */}
+          <div className="hidden md:flex items-center gap-3">
             <button
-              onClick={() => {
-                if (onOpenBooking) {
-                  onOpenBooking();
-                } else {
-                  window.location.href = '/packages';
-                }
-              }}
-              className={`flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold px-5 py-2.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 ${
+              onClick={handlePlanTrip}
+              className={`inline-flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-full transition-all duration-300 active:scale-95 ${
                 isScrolled
-                  ? 'bg-stone-900 text-white hover:bg-stone-800'
-                  : 'bg-white text-stone-950 hover:bg-stone-100'
+                  ? 'bg-slate-900 text-white hover:bg-slate-800 shadow-xs'
+                  : 'bg-white text-slate-900 hover:bg-white/90 shadow-sm'
               }`}
             >
-              <span>Plan a Trip</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <span>Start Journey</span>
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-75" />
             </button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="flex md:hidden items-center gap-2">
+          {/* Mobile Menu Toggle */}
+          <div className="flex md:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`p-2 rounded-full transition-colors ${
                 isScrolled
-                  ? 'text-stone-900 hover:bg-stone-100'
-                  : 'text-white hover:bg-white/20'
+                  ? 'text-slate-900 hover:bg-slate-100'
+                  : 'text-white hover:bg-white/15'
               }`}
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Glass Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-full bg-stone-900/95 backdrop-blur-2xl border-b border-stone-800 px-6 py-6 shadow-2xl transition-all duration-300">
-          <div className="flex flex-col gap-3">
+        <div className="md:hidden fixed inset-x-0 top-full bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl border-b border-slate-200 dark:border-slate-800 px-6 py-6 shadow-xl transition-all">
+          <div className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-white text-stone-950 font-semibold'
-                      : 'text-stone-300 hover:text-white hover:bg-white/10'
+                      ? 'bg-slate-900 text-white font-semibold'
+                      : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900'
                   }`}
                 >
                   {link.name}
                 </Link>
               );
             })}
-            <div className="pt-4 mt-2 border-t border-stone-800 flex flex-col gap-3">
-              <Link
-                href="/contact"
-                className="flex items-center justify-center gap-2 text-stone-300 py-2.5 text-sm"
-              >
-                <PhoneCall className="w-4 h-4" />
-                <span>+1 (800) 926-3375 • 24/7 VIP Line</span>
-              </Link>
+            <div className="pt-4 mt-2 border-t border-slate-200 dark:border-slate-800">
               <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  if (onOpenBooking) {
-                    onOpenBooking();
-                  } else {
-                    window.location.href = '/packages';
-                  }
-                }}
-                className="w-full flex items-center justify-center gap-2 bg-white text-stone-950 font-medium py-3 rounded-xl shadow hover:bg-stone-100 active:scale-95 text-sm uppercase tracking-wider"
+                onClick={handlePlanTrip}
+                className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-medium py-3 rounded-full shadow hover:bg-slate-800 text-xs uppercase tracking-wider"
               >
-                <span>Request Itinerary Consultation</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <span>Start Your Journey</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>

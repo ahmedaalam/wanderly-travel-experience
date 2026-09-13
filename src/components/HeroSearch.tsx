@@ -34,12 +34,12 @@ export default function HeroSearch() {
     <div className="w-full max-w-5xl mx-auto">
       <form
         onSubmit={handleSearch}
-        className="bg-white/90 dark:bg-stone-900/90 backdrop-blur-2xl rounded-3xl sm:rounded-full p-3 sm:p-2.5 shadow-2xl border border-white/50 dark:border-stone-800 flex flex-col lg:flex-row items-center gap-2"
+        className="bg-white/90 backdrop-blur-2xl rounded-3xl sm:rounded-full p-3 sm:p-2.5 shadow-2xl border border-white/50 flex flex-col lg:flex-row items-center gap-2"
       >
         {/* Destination Field */}
-        <div className="w-full lg:flex-1 px-4 py-2 hover:bg-stone-100/70 dark:hover:bg-stone-800/60 rounded-2xl sm:rounded-full transition-colors relative group">
-          <label className="block text-[10px] font-semibold uppercase tracking-wider text-stone-500 mb-0.5 flex items-center gap-1">
-            <MapPin className="w-3 h-3 text-amber-600" />
+        <div className="w-full lg:flex-1 px-4 py-2 hover:bg-slate-100/70 rounded-2xl sm:rounded-full transition-colors relative group">
+          <label className="block text-[10px] font-semibold uppercase tracking-widest text-slate-500 mb-0.5 flex items-center gap-1">
+            <MapPin className="w-3 h-3 text-indigo-600" />
             <span>Where to next?</span>
           </label>
           <input
@@ -47,7 +47,7 @@ export default function HeroSearch() {
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder="Search Amalfi, Kyoto, Alps..."
-            className="w-full bg-transparent text-sm font-medium text-stone-900 dark:text-white placeholder-stone-400 focus:outline-none"
+            className="w-full bg-transparent text-sm font-medium text-slate-900 placeholder-slate-400 focus:outline-none"
             list="destinations-list"
           />
           <datalist id="destinations-list">
@@ -58,18 +58,18 @@ export default function HeroSearch() {
         </div>
 
         {/* Divider */}
-        <div className="hidden lg:block w-px h-8 bg-stone-200 dark:bg-stone-800" />
+        <div className="hidden lg:block w-px h-8 bg-slate-200" />
 
         {/* Date / Season Field */}
-        <div className="w-full lg:w-48 px-4 py-2 hover:bg-stone-100/70 dark:hover:bg-stone-800/60 rounded-2xl sm:rounded-full transition-colors">
-          <label className="block text-[10px] font-semibold uppercase tracking-wider text-stone-500 mb-0.5 flex items-center gap-1">
-            <Calendar className="w-3 h-3 text-amber-600" />
+        <div className="w-full lg:w-48 px-4 py-2 hover:bg-slate-100/70 rounded-2xl sm:rounded-full transition-colors">
+          <label className="block text-[10px] font-semibold uppercase tracking-widest text-slate-500 mb-0.5 flex items-center gap-1">
+            <Calendar className="w-3 h-3 text-indigo-600" />
             <span>When</span>
           </label>
           <select
             value={travelDate}
             onChange={(e) => setTravelDate(e.target.value)}
-            className="w-full bg-transparent text-sm font-medium text-stone-900 dark:text-white focus:outline-none cursor-pointer"
+            className="w-full bg-transparent text-sm font-medium text-slate-900 focus:outline-none cursor-pointer"
           >
             <option value="Autumn 2026">Autumn 2026</option>
             <option value="Winter 2026/27">Winter 2026/27</option>
@@ -80,18 +80,18 @@ export default function HeroSearch() {
         </div>
 
         {/* Divider */}
-        <div className="hidden lg:block w-px h-8 bg-stone-200 dark:bg-stone-800" />
+        <div className="hidden lg:block w-px h-8 bg-slate-200" />
 
         {/* Travelers Field */}
-        <div className="w-full lg:w-44 px-4 py-2 hover:bg-stone-100/70 dark:hover:bg-stone-800/60 rounded-2xl sm:rounded-full transition-colors">
-          <label className="block text-[10px] font-semibold uppercase tracking-wider text-stone-500 mb-0.5 flex items-center gap-1">
-            <Users className="w-3 h-3 text-amber-600" />
+        <div className="w-full lg:w-44 px-4 py-2 hover:bg-slate-100/70 rounded-2xl sm:rounded-full transition-colors">
+          <label className="block text-[10px] font-semibold uppercase tracking-widest text-slate-500 mb-0.5 flex items-center gap-1">
+            <Users className="w-3 h-3 text-indigo-600" />
             <span>Travelers</span>
           </label>
           <select
             value={guests}
             onChange={(e) => setGuests(e.target.value)}
-            className="w-full bg-transparent text-sm font-medium text-stone-900 dark:text-white focus:outline-none cursor-pointer"
+            className="w-full bg-transparent text-sm font-medium text-slate-900 focus:outline-none cursor-pointer"
           >
             <option value="1 Solo">1 Solo Traveler</option>
             <option value="2 Guests">2 Guests (Couple)</option>
@@ -101,32 +101,32 @@ export default function HeroSearch() {
         </div>
 
         {/* Divider */}
-        <div className="hidden lg:block w-px h-8 bg-stone-200 dark:bg-stone-800" />
+        <div className="hidden lg:block w-px h-8 bg-slate-200" />
 
         {/* Style Field */}
-        <div className="w-full lg:w-44 px-4 py-2 hover:bg-stone-100/70 dark:hover:bg-stone-800/60 rounded-2xl sm:rounded-full transition-colors">
-          <label className="block text-[10px] font-semibold uppercase tracking-wider text-stone-500 mb-0.5 flex items-center gap-1">
-            <Sparkles className="w-3 h-3 text-amber-600" />
+        <div className="w-full lg:w-44 px-4 py-2 hover:bg-slate-100/70 rounded-2xl sm:rounded-full transition-colors">
+          <label className="block text-[10px] font-semibold uppercase tracking-widest text-slate-500 mb-0.5 flex items-center gap-1">
+            <Sparkles className="w-3 h-3 text-indigo-600" />
             <span>Expedition Style</span>
           </label>
           <select
             value={tripType}
             onChange={(e) => setTripType(e.target.value)}
-            className="w-full bg-transparent text-sm font-medium text-stone-900 dark:text-white focus:outline-none cursor-pointer"
+            className="w-full bg-transparent text-sm font-medium text-slate-900 focus:outline-none cursor-pointer"
           >
             <option value="All Styles">All Styles</option>
-            <option value="Coastal & Island">Coastal & Island</option>
+            <option value="Coastal &amp; Island">Coastal &amp; Island</option>
             <option value="Cultural Heritage">Cultural Heritage</option>
-            <option value="Alpine & Adventure">Alpine & Ski</option>
-            <option value="Wildlife & Safari">Safari Expedition</option>
-            <option value="Luxury & Wellness">Wellness & Spa</option>
+            <option value="Alpine &amp; Adventure">Alpine &amp; Ski</option>
+            <option value="Wildlife &amp; Safari">Safari Expedition</option>
+            <option value="Luxury &amp; Wellness">Wellness &amp; Spa</option>
           </select>
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full lg:w-auto px-7 py-4 bg-stone-900 hover:bg-stone-800 text-white rounded-2xl sm:rounded-full font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2 shrink-0 transition-all duration-200 shadow-lg active:scale-95 group"
+          className="w-full lg:w-auto px-7 py-4 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl sm:rounded-full font-medium text-xs uppercase tracking-widest flex items-center justify-center gap-2 shrink-0 transition-all duration-200 shadow-sm active:scale-95 group"
         >
           <Search className="w-4 h-4 transition-transform group-hover:scale-110" />
           <span>Explore</span>

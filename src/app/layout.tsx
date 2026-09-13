@@ -1,24 +1,19 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import AppShell from '@/components/AppShell';
 
-const sansFont = Plus_Jakarta_Sans({
+const inter = Inter({
   variable: '--font-sans',
   subsets: ['latin'],
   display: 'swap',
-});
-
-const serifFont = Playfair_Display({
-  variable: '--font-serif',
-  subsets: ['latin'],
-  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
-  title: 'Wanderly | Bespoke Luxury Expeditions & Curated Journeys',
+  title: 'Wanderly | Discover Journeys Beyond Destinations',
   description:
-    'Wanderly crafts tailor-made expeditions for discerning travelers. Private aviation, clifftop sanctuaries, Michelin gastronomy, and unprecedented insider access across the globe.',
+    'Wanderly crafts tailor-made expeditions for discerning travelers. Private aviation, clifftop sanctuaries, Michelin gastronomy, and rare insider access curated without compromise.',
   keywords: [
     'luxury travel',
     'bespoke expeditions',
@@ -36,7 +31,7 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   openGraph: {
-    title: 'Wanderly | Curated Journeys for the Discerning Traveler',
+    title: 'Wanderly | Travel Beyond Destinations',
     description:
       'Immerse in transcendent travel experiences with Wanderly. Handcrafted private itineraries, 24/7 dedicated concierge, and five-star sanctuaries worldwide.',
     type: 'website',
@@ -49,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sansFont.variable} ${serifFont.variable} scroll-smooth`}>
-      <body className="font-sans antialiased bg-[#fafaf9] text-stone-900 min-h-screen flex flex-col">
+    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+      <body className="font-sans antialiased bg-[#fbfbfd] text-slate-900 min-h-screen flex flex-col selection:bg-slate-900 selection:text-white">
         <AppShell>{children}</AppShell>
       </body>
     </html>

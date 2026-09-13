@@ -25,10 +25,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  // Active office tab for simulated map
   const [activeOffice, setActiveOffice] = useState('london');
-
-  // FAQ Accordion
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const offices = [
@@ -122,36 +119,38 @@ export default function ContactPage() {
     <div className="pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
       {/* 1. Header */}
       <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-stone-100 text-stone-700 text-xs font-semibold uppercase tracking-wider">
-          <MessageSquare className="w-3.5 h-3.5 text-stone-900" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-medium uppercase tracking-widest">
+          <MessageSquare className="w-3.5 h-3.5 text-indigo-600" />
           <span>Direct Concierge Access</span>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-serif font-light text-stone-900 tracking-tight">
+        <h1 className="text-5xl sm:text-7xl font-light text-slate-900 tracking-tighter leading-tight">
           Initiate Your Journey
         </h1>
-        <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-          Whether you seek advice on seasonal migrations, private villa rentals, or a complex multi-country expedition, our senior travel advisors are at your service.
+        <p className="text-base sm:text-lg text-slate-500 font-light leading-relaxed">
+          Whether you seek advice on seasonal migrations, private villa rentals, or a complex
+          multi-country expedition, our senior travel advisors are at your service.
         </p>
       </div>
 
       {/* 2. Main Grid: Form + Quick Contacts */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
         {/* Contact Form */}
-        <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 shadow-xl border border-stone-200/80">
+        <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 apple-card-shadow border border-slate-200/70">
           {submitted ? (
             <div className="py-16 text-center space-y-4">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-serif font-medium text-stone-900">
+              <h3 className="text-2xl font-light text-slate-900 tracking-tight">
                 Inquiry Received, {fullName.split(' ')[0]}
               </h3>
-              <p className="text-sm text-stone-500 max-w-md mx-auto leading-relaxed">
-                Thank you for entrusting your voyage with Wanderly. Your dossier has been assigned to our concierge team. We will be in touch shortly via {email}.
+              <p className="text-sm text-slate-500 font-light max-w-md mx-auto leading-relaxed">
+                Thank you for entrusting your voyage with Wanderly. Your dossier has been assigned
+                to our concierge team. We will be in touch shortly via {email}.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
-                className="mt-4 px-6 py-2.5 bg-stone-900 text-white rounded-full text-xs uppercase tracking-wider font-semibold hover:bg-stone-800"
+                className="mt-4 px-6 py-3 bg-slate-900 text-white rounded-full text-xs uppercase tracking-widest font-medium hover:bg-slate-800 transition-colors active:scale-95"
               >
                 Send Another Inquiry
               </button>
@@ -159,17 +158,18 @@ export default function ContactPage() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-1">
-                <h3 className="text-xl font-serif font-medium text-stone-900">
+                <h3 className="text-2xl font-light text-slate-900 tracking-tight">
                   Request a Private Consultation
                 </h3>
-                <p className="text-xs text-stone-500">
-                  Please share your aspirational ideas. All requests are handled with absolute confidentiality.
+                <p className="text-xs text-slate-500 font-light">
+                  Please share your aspirational ideas. All requests are handled with absolute
+                  confidentiality.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">
+                  <label className="block text-xs font-semibold uppercase tracking-widest text-slate-500 mb-1.5">
                     Full Name *
                   </label>
                   <input
@@ -178,12 +178,12 @@ export default function ContactPage() {
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Lady / Lord / Mr. / Ms..."
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">
+                  <label className="block text-xs font-semibold uppercase tracking-widest text-slate-500 mb-1.5">
                     Email Address *
                   </label>
                   <input
@@ -192,14 +192,14 @@ export default function ContactPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="name@domain.com"
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">
+                  <label className="block text-xs font-semibold uppercase tracking-widest text-slate-500 mb-1.5">
                     Phone / WhatsApp
                   </label>
                   <input
@@ -207,26 +207,26 @@ export default function ContactPage() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+1 (555) 000-0000"
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">
+                  <label className="block text-xs font-semibold uppercase tracking-widest text-slate-500 mb-1.5">
                     Preferred Destination
                   </label>
                   <select
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
-                    className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-none focus:border-stone-900 transition-colors cursor-pointer"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-slate-900 transition-colors cursor-pointer"
                   >
-                    <option value="Amalfi Coast">Amalfi Coast & Capri</option>
-                    <option value="Kyoto & Japan">Kyoto & Tokyo, Japan</option>
-                    <option value="Swiss Alps">Zermatt & Swiss Alps</option>
+                    <option value="Amalfi Coast">Amalfi Coast &amp; Capri</option>
+                    <option value="Kyoto &amp; Japan">Kyoto &amp; Tokyo, Japan</option>
+                    <option value="Swiss Alps">Zermatt &amp; Swiss Alps</option>
                     <option value="Serengeti">Serengeti Safari, Tanzania</option>
-                    <option value="Santorini">Santorini & Cyclades</option>
-                    <option value="Bali">Bali & Nusa Islands</option>
-                    <option value="Iceland">Iceland Aurora & Glaciers</option>
+                    <option value="Santorini">Santorini &amp; Cyclades</option>
+                    <option value="Bali">Bali &amp; Nusa Islands</option>
+                    <option value="Iceland">Iceland Aurora &amp; Glaciers</option>
                     <option value="Patagonia">Patagonia Wilderness</option>
                     <option value="Open/Custom">Undecided / Open to Proposal</option>
                   </select>
@@ -234,44 +234,44 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">
+                <label className="block text-xs font-semibold uppercase tracking-widest text-slate-500 mb-1.5">
                   Estimated Trip Investment
                 </label>
                 <select
                   value={budget}
                   onChange={(e) => setBudget(e.target.value)}
-                  className="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-none focus:border-stone-900 transition-colors cursor-pointer"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-slate-900 transition-colors cursor-pointer"
                 >
                   <option value="$3,500 - $5,000 / guest">$3,500 - $5,000 per guest</option>
                   <option value="$5,000 - $10,000 / guest">$5,000 - $10,000 per guest</option>
                   <option value="$10,000 - $20,000 / guest">$10,000 - $20,000 per guest</option>
-                  <option value="$20,000+ Unlimited">$20,000+ / Private Aviation & Yacht</option>
+                  <option value="$20,000+ Unlimited">$20,000+ / Private Aviation &amp; Yacht</option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1">
-                  Voyage Vision & Special Requests
+                <label className="block text-xs font-semibold uppercase tracking-widest text-slate-500 mb-1.5">
+                  Voyage Vision &amp; Special Requests
                 </label>
                 <textarea
                   rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Share dates, traveling companions, special milestones (anniversary, honeymoon), or architectural preferences..."
-                  className="w-full bg-stone-50 border border-stone-200 rounded-xl p-4 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-900 transition-colors resize-none"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 transition-colors resize-none"
                 />
               </div>
 
               <div className="flex items-center justify-between pt-2">
-                <div className="flex items-center gap-1.5 text-xs text-stone-500">
+                <div className="flex items-center gap-1.5 text-xs text-slate-500 font-light">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Confidential & encrypted</span>
+                  <span>Confidential &amp; encrypted</span>
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-8 py-3.5 bg-stone-900 hover:bg-stone-800 text-white rounded-full text-xs uppercase tracking-wider font-semibold shadow-lg transition-all active:scale-95 disabled:opacity-50 flex items-center gap-2"
+                  className="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full text-xs uppercase tracking-widest font-medium shadow-sm transition-all active:scale-95 disabled:opacity-50 flex items-center gap-2"
                 >
                   <span>{isSubmitting ? 'Transmitting...' : 'Dispatch Inquiry'}</span>
                   <Send className="w-3.5 h-3.5" />
@@ -283,61 +283,62 @@ export default function ContactPage() {
 
         {/* Direct Contacts & Fast Response Box */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-stone-900 text-white rounded-3xl p-8 space-y-6 shadow-xl">
-            <h3 className="text-xl font-serif font-medium">VIP Concierge Desks</h3>
-            <p className="text-xs text-stone-400 leading-relaxed">
-              Prefer an immediate voice conversation? Our dispatchers are available 24/7 for urgent travel requests and bespoke itinerary bookings.
+          <div className="bg-slate-900 text-white rounded-3xl p-8 space-y-6 apple-card-shadow">
+            <h3 className="text-xl font-light text-white tracking-tight">VIP Concierge Desks</h3>
+            <p className="text-xs text-slate-400 font-light leading-relaxed">
+              Prefer an immediate voice conversation? Our dispatchers are available 24/7 for urgent
+              travel requests and bespoke itinerary bookings.
             </p>
 
             <div className="space-y-4 pt-2">
               <div className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-amber-400 mt-1 shrink-0" />
+                <Phone className="w-4 h-4 text-indigo-400 mt-0.5 shrink-0" />
                 <div>
-                  <span className="text-xs text-stone-400 block">Toll-Free Global Concierge</span>
-                  <span className="text-sm font-semibold text-white">+1 (800) 926-3375</span>
+                  <span className="text-xs text-slate-400 block">Toll-Free Global Concierge</span>
+                  <span className="text-sm font-medium text-white">+1 (800) 926-3375</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-amber-400 mt-1 shrink-0" />
+                <Mail className="w-4 h-4 text-indigo-400 mt-0.5 shrink-0" />
                 <div>
-                  <span className="text-xs text-stone-400 block">Confidential Inquiries</span>
-                  <span className="text-sm font-semibold text-white">concierge@wanderlyexpeditions.com</span>
+                  <span className="text-xs text-slate-400 block">Confidential Inquiries</span>
+                  <span className="text-sm font-medium text-white">concierge@wanderlyexpeditions.com</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-amber-400 mt-1 shrink-0" />
+                <Clock className="w-4 h-4 text-indigo-400 mt-0.5 shrink-0" />
                 <div>
-                  <span className="text-xs text-stone-400 block">Response Protocol</span>
-                  <span className="text-sm font-semibold text-white">Dedicated designer assignment under 4 hrs</span>
+                  <span className="text-xs text-slate-400 block">Response Protocol</span>
+                  <span className="text-sm font-medium text-white">Dedicated designer assignment under 4 hrs</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Quick FAQ snippet box */}
-          <div className="bg-stone-100 rounded-3xl p-8 border border-stone-200/80 space-y-3">
-            <h4 className="text-sm font-serif font-bold text-stone-900">
+          <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200/60 space-y-3 apple-card-shadow">
+            <h4 className="text-base font-light text-slate-900 tracking-tight">
               Personalized Private Meetings
             </h4>
-            <p className="text-xs text-stone-600 leading-relaxed">
-              We frequently conduct private consultations in person at our London, New York, or Zurich ateliers, or directly at your residence upon request.
+            <p className="text-xs text-slate-500 font-light leading-relaxed">
+              We frequently conduct private consultations in person at our London, New York, or
+              Zurich ateliers, or directly at your residence upon request.
             </p>
           </div>
         </div>
       </div>
 
-      {/* 3. Global Flagship Offices & Simulated Map Section */}
+      {/* 3. Global Flagship Offices */}
       <div className="mb-24 space-y-8">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs uppercase tracking-widest font-semibold text-amber-600">
+        <div className="text-center max-w-2xl mx-auto space-y-3">
+          <span className="text-xs uppercase tracking-widest font-semibold text-indigo-600">
             Global Presence
           </span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-light text-stone-900 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-light text-slate-900 tracking-tight">
             Our Flagship Ateliers
           </h2>
-          <p className="text-sm text-stone-600">
+          <p className="text-sm text-slate-500 font-light">
             Visit us in prime metropolitan centres worldwide for private journey design appointments.
           </p>
         </div>
@@ -348,10 +349,10 @@ export default function ContactPage() {
             <button
               key={office.id}
               onClick={() => setActiveOffice(office.id)}
-              className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wider transition-all shrink-0 ${
+              className={`px-5 py-2 rounded-full text-xs font-medium tracking-wider transition-all shrink-0 ${
                 activeOffice === office.id
-                  ? 'bg-stone-900 text-white shadow-md'
-                  : 'bg-stone-100 hover:bg-stone-200 text-stone-600'
+                  ? 'bg-slate-900 text-white shadow-sm'
+                  : 'bg-slate-100 hover:bg-slate-200/80 text-slate-600'
               }`}
             >
               {office.city}
@@ -360,30 +361,22 @@ export default function ContactPage() {
         </div>
 
         {/* Map & Office Showcase Card */}
-        <div className="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-xl grid grid-cols-1 lg:grid-cols-12">
-          {/* Simulated Interactive Map Display */}
-          <div className="lg:col-span-7 relative h-80 sm:h-96 lg:h-auto min-h-[380px] bg-stone-950">
+        <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/70 apple-card-shadow grid grid-cols-1 lg:grid-cols-12">
+          {/* Image Display */}
+          <div className="lg:col-span-7 relative h-80 sm:h-96 lg:h-auto min-h-[380px] bg-slate-950">
             <div
-              className="w-full h-full bg-cover bg-center opacity-85 transition-all duration-700"
+              className="w-full h-full bg-cover bg-center opacity-90 transition-all duration-700"
               style={{ backgroundImage: `url(${currentOffice.image})` }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
 
-            {/* Visual Radar / Map Marker Island */}
-            <div className="absolute top-6 left-6 p-4 rounded-2xl bg-stone-900/80 backdrop-blur-md border border-white/15 text-white text-xs space-y-1">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                <span className="font-semibold">{currentOffice.city} Active Desk</span>
-              </div>
-              <p className="text-[11px] text-stone-400 font-mono">{currentOffice.coordinates}</p>
-            </div>
 
-            <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 dark:bg-stone-900/90 backdrop-blur-md border border-white/30 text-stone-900 dark:text-white flex items-center justify-between">
+            <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/30 text-slate-900 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-amber-600 shrink-0" />
+                <MapPin className="w-4 h-4 text-indigo-600 shrink-0" />
                 <span className="text-xs font-medium truncate">{currentOffice.address}</span>
               </div>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-amber-600 shrink-0 ml-2">
+              <span className="text-[10px] uppercase font-semibold tracking-widest text-indigo-600 shrink-0 ml-2">
                 Verified Atelier
               </span>
             </div>
@@ -392,40 +385,42 @@ export default function ContactPage() {
           {/* Office Details */}
           <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <span className="text-xs uppercase tracking-widest font-semibold text-amber-600">
+              <span className="text-xs uppercase tracking-widest font-semibold text-indigo-600">
                 {currentOffice.country}
               </span>
-              <h3 className="text-2xl font-serif font-bold text-stone-900">
+              <h3 className="text-2xl font-light text-slate-900 tracking-tight">
                 {currentOffice.city}
               </h3>
-              <p className="text-xs text-stone-500 leading-relaxed">
-                Located in the heart of {currentOffice.city.split(' ')[0]}, our private salon welcomes discerning travelers by appointment for bespoke itinerary curation, private tasting previews, and travel documentation hand-offs.
+              <p className="text-xs text-slate-500 font-light leading-relaxed">
+                Located in the heart of {currentOffice.city.split(' ')[0]}, our private salon
+                welcomes discerning travelers by appointment for bespoke itinerary curation, private
+                tasting previews, and travel documentation hand-offs.
               </p>
 
-              <div className="space-y-3 pt-2 text-xs text-stone-700">
+              <div className="space-y-3 pt-2 text-xs text-slate-700">
                 <div className="flex items-center gap-2.5">
-                  <MapPin className="w-4 h-4 text-stone-400 shrink-0" />
+                  <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
                   <span>{currentOffice.address}</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-stone-400 shrink-0" />
+                  <Phone className="w-4 h-4 text-slate-400 shrink-0" />
                   <span>{currentOffice.phone}</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 text-stone-400 shrink-0" />
+                  <Mail className="w-4 h-4 text-slate-400 shrink-0" />
                   <span>{currentOffice.email}</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <Clock className="w-4 h-4 text-stone-400 shrink-0" />
+                  <Clock className="w-4 h-4 text-slate-400 shrink-0" />
                   <span>{currentOffice.hours}</span>
                 </div>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-stone-100">
+            <div className="pt-4 border-t border-slate-100">
               <a
                 href={`tel:${currentOffice.phone.replace(/[^0-9+]/g, '')}`}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-stone-900 text-white hover:bg-stone-800 text-xs uppercase tracking-wider font-semibold transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 text-white hover:bg-slate-800 text-xs uppercase tracking-widest font-medium transition-colors active:scale-95"
               >
                 <span>Call {currentOffice.city.split(' ')[0]} Desk Directly</span>
               </a>
@@ -434,13 +429,13 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* 4. Frequently Asked Questions Accordion */}
+      {/* 4. FAQ Accordion */}
       <div className="max-w-3xl mx-auto space-y-8">
-        <div className="text-center space-y-2">
-          <span className="text-xs uppercase tracking-widest font-semibold text-amber-600">
+        <div className="text-center space-y-3">
+          <span className="text-xs uppercase tracking-widest font-semibold text-indigo-600">
             Frequently Inquired
           </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-light text-stone-900">
+          <h2 className="text-3xl sm:text-5xl font-light text-slate-900 tracking-tight">
             Everything You Wish To Know
           </h2>
         </div>
@@ -449,21 +444,21 @@ export default function ContactPage() {
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl border border-stone-200/80 overflow-hidden shadow-xs"
+              className="bg-white rounded-2xl border border-slate-200/70 overflow-hidden apple-card-shadow"
             >
               <button
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                className="w-full flex items-center justify-between p-5 text-left text-sm font-semibold text-stone-900 hover:bg-stone-50 transition-colors"
+                className="w-full flex items-center justify-between p-5 text-left text-sm font-medium text-slate-900 hover:bg-slate-50 transition-colors"
               >
                 <span>{faq.q}</span>
                 <ChevronDown
-                  className={`w-4 h-4 text-stone-400 transition-transform duration-200 shrink-0 ml-4 ${
-                    openFaq === idx ? 'rotate-180 text-stone-900' : ''
+                  className={`w-4 h-4 text-slate-400 transition-transform duration-300 shrink-0 ml-4 ${
+                    openFaq === idx ? 'rotate-180 text-slate-900' : ''
                   }`}
                 />
               </button>
               {openFaq === idx && (
-                <div className="px-5 pb-5 text-xs text-stone-600 leading-relaxed border-t border-stone-100 pt-3">
+                <div className="px-5 pb-5 text-xs text-slate-500 font-light leading-relaxed border-t border-slate-100 pt-3">
                   {faq.a}
                 </div>
               )}

@@ -41,7 +41,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
         {toasts.map((toast) => (
           <div
             key={toast.id}
-            className="pointer-events-auto flex items-start gap-3 p-4 rounded-2xl bg-stone-900 text-white shadow-2xl border border-stone-800 transition-all duration-300 animate-in fade-in slide-in-from-bottom-5"
+            className="pointer-events-auto flex items-start gap-3 p-4 rounded-2xl bg-slate-900 text-white shadow-2xl border border-slate-800 transition-all duration-300 animate-in fade-in slide-in-from-bottom-5"
           >
             {toast.type === 'success' && (
               <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
@@ -53,16 +53,16 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               <Info className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
             )}
             <div className="flex-1 min-w-0">
-              <h4 className="text-sm font-semibold text-stone-100">{toast.title}</h4>
+              <h4 className="text-sm font-medium text-slate-100">{toast.title}</h4>
               {toast.message && (
-                <p className="text-xs text-stone-300 mt-1 leading-relaxed">
+                <p className="text-xs text-slate-300 font-light mt-1 leading-relaxed">
                   {toast.message}
                 </p>
               )}
             </div>
             <button
               onClick={() => removeToast(toast.id)}
-              className="text-stone-400 hover:text-stone-200 transition-colors p-1"
+              className="text-slate-400 hover:text-slate-200 transition-colors p-1"
               aria-label="Close notification"
             >
               <X className="w-4 h-4" />
