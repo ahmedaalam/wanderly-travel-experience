@@ -6,7 +6,7 @@ A modern, high-end travel agency web application inspired by minimalist design a
 
 ---
 
-![Wanderly Preview](public/screenshot.jpg)
+![Wanderly Preview](public/screenshot.png)
 
 ---
 
