@@ -38,44 +38,44 @@ export default function HomePage() {
   return (
     <div className="flex flex-col w-full overflow-hidden bg-[#fbfbfd]">
       {/* ========================================================
-          1. HERO SECTION (Apple Cinematic Minimalism)
+          1. HERO SECTION (Cinematic Luxury Experience)
           ======================================================== */}
-      <section className="relative min-h-[94vh] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative min-h-[100dvh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Cinematic Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-100"
+          className="absolute inset-0 bg-cover bg-center sm:bg-[center_35%] transition-transform duration-1000 scale-100"
           style={{
             backgroundImage: `url('/hero-bg.jpg')`,
           }}
         />
 
-        {/* Soft Dark Vignette & Atmospheric Gradient for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/45" />
+        {/* Soft, Transparent Vignette to Keep Sunset Bright and Radiant */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/25" />
 
         {/* Hero Content with Smooth Framer Motion Entry */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 max-w-6xl mx-auto text-center flex flex-col items-center pt-20 pb-16"
+          className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center pt-28 pb-20 sm:pt-32 sm:pb-24 w-full"
         >
           {/* Hero Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-light text-white tracking-tight leading-[1.1] max-w-4xl">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.12] sm:leading-[1.08] max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
             Discover Journeys
-            <br className="hidden sm:inline" />
-            {" "}Beyond Destinations
+            <br className="hidden sm:inline" /> Beyond Destinations
           </h1>
 
           {/* Subtext matching reference image */}
-          <p className="mt-6 text-base sm:text-lg md:text-xl text-slate-100/90 font-light max-w-2xl leading-relaxed">
-            More than just a trip — it&apos;s a collection of once-in-a-lifetime experiences, crafted for curious souls.
+          <p className="mt-4 sm:mt-6 text-sm sm:text-lg md:text-xl text-slate-100/95 font-light max-w-2xl px-2 sm:px-0 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+            More than just a trip — it&apos;s a collection of once-in-a-lifetime
+            experiences, crafted for curious souls.
           </p>
 
-          {/* Pill Action Buttons matching reference image */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center gap-5">
+          {/* Pill Action Buttons */}
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
             <Link
               href="/destinations"
-              className="px-8 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full text-sm font-medium tracking-wide transition-all shadow-lg shadow-indigo-950/30 active:scale-95 flex items-center gap-2"
+              className="px-5 py-2.5 sm:px-8 sm:py-3.5 text-[11px] sm:text-xs bg-white hover:bg-white/90 text-slate-900 rounded-full uppercase tracking-widest font-semibold transition-all duration-300 shadow-xl shadow-black/15 hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2.5"
             >
               <span>Explore Destinations</span>
               <ArrowRight className="w-4 h-4" />
@@ -83,15 +83,18 @@ export default function HomePage() {
 
             <button
               onClick={() => openBookingModal()}
-              className="px-6 py-3.5 rounded-full text-white/95 hover:text-white text-sm font-light tracking-wide transition-all flex items-center gap-2.5 active:scale-95 group"
+              className="px-4 py-1.5 sm:px-6 sm:py-2 rounded-full  bg-white/10 hover:bg-white/20 border border-white/25 text-white text-[11px] sm:text-xs uppercase tracking-widest font-medium backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-3 shadow-lg shadow-black/20 group"
             >
               <span>Watch Our Story</span>
-              <span className="w-7 h-7 rounded-full border border-white/40 flex items-center justify-center transition-transform group-hover:scale-110 bg-white/5 backdrop-blur-xs">
+              <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border border-white/40 flex items-center justify-center transition-transform group-hover:scale-110 bg-white/10">
                 <Play className="w-3 h-3 fill-white translate-x-0.5" />
               </span>
             </button>
           </div>
         </motion.div>
+
+        {/* Seamless Soft Fade into the Next Section */}
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#fbfbfd] via-[#fbfbfd]/30 to-transparent pointer-events-none" />
       </section>
 
       {/* ========================================================
