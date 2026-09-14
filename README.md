@@ -2,7 +2,7 @@
 
 A modern, high-end travel agency web application inspired by minimalist design and luxury hospitality brands.
 
-**Live Website:** [https://wanderly-travels-website.vercel.app/](https://wanderly-travels-website.vercel.app/)
+**Live Website:** [https://wanderly-travel-experience.vercel.app/](https://wanderly-travel-experience.vercel.app/)
 
 ---
 
